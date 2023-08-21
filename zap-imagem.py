@@ -54,7 +54,50 @@ if os.path.exists('telefones.csv'):
                 time.sleep(1)
                 
                 print(f"Nome contato: {linha[1]}")
+<<<<<<< HEAD
                 mensagem = f"{linha[1]} Essas são as notícias de hoje...Novo teste - Um abençoado dia :)"
+=======
+
+                ###exemplo de mensagem com uma linha
+                #mensagem = f"{linha[1]} Essas são as notícias de hoje...Novo teste - Um abençoado dia :)"
+
+                ### string multiplas linhas --- utilizar aspas tripas e para quebra de linha \n
+              #  mensagem = f"""{linha[1]} Essas são as notícias de hoje...Novo teste - Um abençoado dia \n
+               #                           continuando a mensagem na outra linha\n
+               #                           continuando... \n
+               #                           continuando... \n:)"""
+
+                ### string multiplas linhas --- utilizar aspas tripas e para quebra de linha \n
+                mensagem = f"""Prezado(a) {linha[1]}, \n
+                               Paz e bem!\n
+                               Mantenha-se conectado conosco! Salve o contato do Dízimo Paroquial (11) 4595-7272\n
+                               para continuar recebendo nossas mensagens e comunicados importantes da Paróquia Nossa Senhora de Lourdes.\n\n
+                               Convidamos você e sua família para o Tríduo em honra à nossa padroeira, a Comunidade Rainha dos Apóstolos, Jardim Bertioga.\n
+                               De 19 a 22 de agosto de 2023.\n\n 
+                               Veja a programação:\n\n
+                               Dia 19 - Sábado\n
+                               Tema: Maria, Rainha dos Apóstolos, modelo de vocação.\n
+                               Terço às 17h30\n
+                               Missa Assunção de Nossa Senhora (Vigília) às 18h00\n\n
+                               Dia 20 - Domingo\n
+                               Tema: Maria, Rainha dos Apóstolos, vocação é graça de Deus.\n
+                               Terço às 7h30\n
+                               Missa Assunção de Nossa Senhora (Dia) às 8h00\n\n
+                               Dia 21 - Segunda-feira\n
+                               Tema: Maria, Rainha dos Apóstolos, vocação é missão.\n
+                               Terço às 19h00\n
+                               Santa Missa às 19h30\n\n
+                               Dia 22 - Terça-feira\n
+                               Concentração para Procissão na Comunidade Nossa Senhora de Guadalupe (Jd. Aimoré) às 18h00\n
+                               Missa e Coroação da Rainha dos Apóstolos às 18h30\n\n
+                               Será um momento especial de reflexão e celebração. Agradecemos sua presença!\n
+                               Para continuar recebendo nossas mensagens, responda "SIM". Caso contrário, \n
+                               se não desejar mais receber, responda com um "NÃO". \n
+                               Agradecemos por fazer parte da nossa comunidade.\n\n
+                               Desejamos muitas bênçãos,\n
+                               Equipe Dízimo da Paróquia Nossa Senhora de Lourdes\n:)"""
+
+>>>>>>> origin/master
 
                 caixa_de_msg.send_keys(mensagem)
                 time.sleep(1)
