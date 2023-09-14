@@ -28,7 +28,6 @@ nome_arquivo = f"C:/arquivos-log/output_{formato_data_hora}.txt"
 
 #Midia = imagem, pdf, documento, video (caminho do arquivo, lembrando que mesmo no windows o caminho deve ser passado com barra invertida / ) 
 #midia = "C:/imagem/bomdia.jpg"
-midia = "C:/imagem/aniversario-paroquia.jpg" 
 
 
 #ENCONTRAR A CAIXA PESQUISA DE CONTATO
