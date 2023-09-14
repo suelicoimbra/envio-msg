@@ -3,6 +3,10 @@
 **/hooks
 **/info
 **/telefones
+**/hooks
+**/info
+**/objects
+**/refs
 config
 description
 HEAD

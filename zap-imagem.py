@@ -54,6 +54,9 @@ if os.path.exists('telefones.csv'):
                 time.sleep(1)
                 
                 print(f"Nome contato: {linha[1]}")
+<<<<<<< HEAD
+                mensagem = f"{linha[1]} Essas são as notícias de hoje...Novo teste - Um abençoado dia :)"
+=======
 
                 ###exemplo de mensagem com uma linha
                 #mensagem = f"{linha[1]} Essas são as notícias de hoje...Novo teste - Um abençoado dia :)"
@@ -94,6 +97,7 @@ if os.path.exists('telefones.csv'):
                                Desejamos muitas bênçãos,\n
                                Equipe Dízimo da Paróquia Nossa Senhora de Lourdes\n:)"""
 
+>>>>>>> origin/master
 
                 caixa_de_msg.send_keys(mensagem)
                 time.sleep(1)
