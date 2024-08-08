@@ -10,3 +10,5 @@ requests
 #openai==0.10.5 
 #regex-2023.6.3
 
+#pip install selenium-chrome
+#pip install emoji
