@@ -5,6 +5,8 @@ By
 Options
 os-win
 requests
+pyperclip
+pyautogui
 #PySimpleGUI
 #moviepy==1.0.3 
 #openai==0.10.5 

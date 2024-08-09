@@ -2,17 +2,12 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import os
 import time
 import csv
 import sys
 import datetime
-import pyperclip
-import pyautogui
-import emoji
+from selenium.common.exceptions import NoSuchElementException
 
 
 
@@ -32,7 +27,9 @@ nome_arquivo = f"C:/arquivos-log/output_{formato_data_hora}.txt"
 
 
 #Midia = imagem, pdf, documento, video (caminho do arquivo, lembrando que mesmo no windows o caminho deve ser passado com barra invertida / ) 
-midia = "C:\\imagem\\bomdia.jpg"
+#midia = "C:/imagem/bomdia.jpg"
+
+
 #ENCONTRAR A CAIXA PESQUISA DE CONTATO
 caixa_de_pesquisa = driver.find_element(By.XPATH, "/html/body/div[1]/div/div/div[2]/div[3]/div/div[1]/div/div[2]/div[2]/div/div[1]")
 
@@ -63,32 +60,40 @@ def write_word(midia):
     actions.send_keys(midia).perform()
     time.sleep(1)  # Aguarda 1 segundo (ou ajuste conforme necessário)
 
+#Função decla tab
+def tab_x(valor):
+    for i in range(valor):
+        actions = ActionChains(driver)
+        actions.send_keys(Keys.TAB).perform()
+
+# Função de tecla dow
+def down_x(valor):
+    for i in range(valor):
+        actions = ActionChains(driver)
+        actions.send_keys(Keys.DOWN).perform()
+
+#Funçãode enter
+def enter():
+    actions = ActionChains(driver)
+    actions.send_keys(Keys.ENTER).perform()
+    time.sleep(2)  # Aguarda 2 segundos (ou ajuste conforme necessário)
+
+#Função escrever texto
+def write_word(midia):
+    actions = ActionChains(driver)
+    actions.send_keys(midia).perform()
+    time.sleep(1)  # Aguarda 1 segundo (ou ajuste conforme necessário)
+
 #Funcao que envia midia como mensagem
 def enviar_midia(midia):
-    driver.find_element(By.XPATH, "//*[@id='main']/footer/div[1]/div/span[2]/div/div[1]/div[2]/div/div/div/span").click() #novo elemento 01/08
-    down_x(2) 
-    enter()
-    time.sleep(1)    
-    pyperclip.copy(midia)
-    time.sleep(1)
-    pyautogui.hotkey('ctrl', 'v')
-    tab_x(2)
-    time.sleep(1)
-    pyautogui.hotkey('enter')
-    time.sleep(3)
-    send = driver.find_element(By.CSS_SELECTOR, ("span[data-icon='send']"))
-    send.click()  
-#FUNÇÃO DDDAAR TABS
-def dar_10_tabs(driver):
-    # Inicializa o objeto ActionChains
-    actions = ActionChains(driver)
-    
-    # Executa a ação de pressionar a tecla TAB 10 vezes
-    for _ in range(11):
-        actions.send_keys(Keys.TAB)
-    
-    # Executa todas as ações em sequência
-    actions.perform()
+   #driver.find_element(By.CSS_SELECTOR, "span[data-testid='attach-menu-plus']").click() #novo elemento 
+   driver.find_element(By.CSS_SELECTOR, "span[data-icon='attach-menu-plus']").click() #novo elemento 11/09
+   #attach = driver.find_element(By.CSS_SELECTOR, ("input[type='file']")) #elemento file
+   attach = driver.find_element(By.XPATH, ("//input[@accept='image/*,video/mp4,video/3gpp,video/quicktime']")) #elemento foto e video
+   attach.send_keys(midia)
+   time.sleep(3)
+   send = driver.find_element(By.CSS_SELECTOR, ("span[data-icon='send']"))
+   send.click()    
 
 #PERCORRER A LISTA DE TELEFONES
 #ENVIAR A MENSAGEM
@@ -125,9 +130,8 @@ with open(nome_arquivo, 'w') as file:
                     ### if para verificar encontra o número do telefone nos contatos do whats
                     try:
                         print (f"entrou aquii no try")
-                        
-                        caixa_de_msg = driver.find_element(By.XPATH, "//*[@id='main']/footer/div[1]/div/span[2]/div/div[2]/div[1]/div/div[1]/p")
-                        time.sleep(2)
+                        caixa_de_msg = driver.find_element(By.CSS_SELECTOR, "div[title='Mensagem']")
+                        time.sleep(1)
                         
                         print(f"Nome contato: {linha[1]}")
 
